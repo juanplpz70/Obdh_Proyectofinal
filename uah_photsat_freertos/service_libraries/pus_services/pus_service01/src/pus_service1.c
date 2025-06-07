@@ -187,6 +187,7 @@ tc_accept_report_t pus_service1_tc_acceptation(tc_handler_t *ptc_handler) {
 
 			}
 		}
+	  }
 	}
 
 	return accept_report;
@@ -265,6 +266,6 @@ error_code_t pus_service1_tx_TM_1_7(tc_handler_t *ptc_handler) {
 	}
 
 	return error;
-
 }
+
 

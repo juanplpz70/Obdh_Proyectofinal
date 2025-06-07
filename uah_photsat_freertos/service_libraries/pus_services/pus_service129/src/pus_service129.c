@@ -59,7 +59,7 @@ void pus_service129_exec_tc(tc_handler_t *ptc_handler) {
 	}
 }
 
-}
+
 
 void pus_service129_start_observation() {
 
