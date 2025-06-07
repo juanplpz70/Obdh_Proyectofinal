@@ -112,7 +112,7 @@ time.GetTime(); // Get current monotonic time
 time+=Pr_Time(0,100000); // Add X sec + Y microsec    
  
    //Program absolute timer 
-   ObservTimer.InformAt( time ); 
+   AttCtrlTimer.InformAt( time ); 
 }
 
 
@@ -131,7 +131,7 @@ void	CCObsMng::EDROOM_CTX_Top_0::FProgAttitudeCtrl()
 VNextTimeOut+= Pr_Time(0,10000); // Add X sec + Y microsec 
 time=VNextTimeOut; 
    //Program absolute timer 
-   ObservTimer.InformAt( time ); 
+   AttCtrlTimer.InformAt( time ); 
 }
 
 
