@@ -148,7 +148,7 @@ void	CCObsMng::EDROOM_CTX_Top_0::FProgTakeImage()
 	//time.Add(X,Y); // Add X sec + Y microsec
 	interval=CImageInterval;
    //Program relative timer 
-   AttCtrlTimer.InformIn( interval ); 
+   ObservTimer.InformIn( interval ); 
 }
 
 
