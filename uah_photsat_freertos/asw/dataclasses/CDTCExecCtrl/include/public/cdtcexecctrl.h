@@ -3,7 +3,7 @@
 
 //TODO Add in EDROOM model the enumerate to handle ST[129] TCs
 enum TTCExecCtrl {
-	ExecCtrlPrioTC, ExecCtrlReboot, ExecCtrlHK_FDIRTC, ExecCtrlBKGTC
+	ExecCtrlPrioTC, ExecCtrlReboot, ExecCtrlHK_FDIRTC, ExecCtrlBKGTC, ExecCtrlObsMng
 };
 
 class CDTCExecCtrl{
@@ -42,6 +42,14 @@ class CDTCExecCtrl{
 
 
 	//TODO Add in EDROOM model the guard to handle ST[129] TCs
+	/**
+	 * \brief Check if is a HK_FDIR telecommand
+	 *
+	 * \return true if it is a HK_FDIR telecommand
+	 *
+	 */
+	bool ObsMng(){return (ExecCtrlObsMng==mExecCtrl);}
+
 
 	/**
 	 * \brief Check if is a Background telecommand

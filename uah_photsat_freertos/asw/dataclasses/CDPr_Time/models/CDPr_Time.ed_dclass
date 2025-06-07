@@ -1,0 +1,9 @@
+dataclass CDPr_Time{
+
+
+
+	uri := es.uah.aut.srg.edroom.mclev.data_sai.cdpr_time.cdpr_time_iface;
+	version := v1;
+
+
+};
