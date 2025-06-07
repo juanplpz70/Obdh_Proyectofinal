@@ -250,10 +250,10 @@ public:
 			NewRxTC_NotAccepted,
 			HandleTC,
 			HandleTC_ToReboot,
-			HandleTC_ExecPrioTC,
 			HandleTC_FwdHK_FDIRTC,
 			HandleTC_FwdToBKGTCExec,
 			HandleTC_FwdObsMngTC,
+			HandleTC_ExecPrioTC,
 			NewEvAction,
 			EDROOMMemoryTrans };
 
@@ -384,6 +384,11 @@ public:
 		 * \brief  
 		 */
 		bool	GToReboot();
+
+		/**
+		 * \brief 
+		 */
+		bool	GFwdObsMngTC();
 
 	};
 

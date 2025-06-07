@@ -42,13 +42,15 @@ class CDTCExecCtrl{
 
 
 	//TODO Add in EDROOM model the guard to handle ST[129] TCs
+
+
 	/**
 	 * \brief Check if is a HK_FDIR telecommand
 	 *
 	 * \return true if it is a HK_FDIR telecommand
 	 *
 	 */
-	bool ObsMng(){return (ExecCtrlObsMng==mExecCtrl);}
+	bool IsObsMngTC(){return (ExecCtrlObsMng==mExecCtrl);}
 
 
 	/**

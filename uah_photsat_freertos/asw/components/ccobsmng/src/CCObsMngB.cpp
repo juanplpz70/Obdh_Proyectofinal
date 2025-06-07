@@ -64,7 +64,7 @@ bool CCObsMng::EDROOM_CTX_Top_0::EDROOMSearchContextTrans(
 
 	// User-defined Functions   ****************************
 
-void	CCObsMng::EDROOM_CTX_Top_0::FDoActtitudeCtrl()
+void	CCObsMng::EDROOM_CTX_Top_0::FDoAttitudeCtrl()
 
 {
 
@@ -244,7 +244,7 @@ void CCObsMng::EDROOM_SUB_Top_0::EDROOMBehaviour()
 			case (DoAttitutdeCtrl):
 
 				//Execute Action 
-				FDoActtitudeCtrl();
+				FDoAttitudeCtrl();
 				//Evaluate Branch ReadyToObservation
 				if( GReadyToObservation() )
 				{

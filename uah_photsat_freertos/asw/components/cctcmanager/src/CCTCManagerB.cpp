@@ -263,6 +263,16 @@ return VTCExecCtrl.IsRebootTC();
 
 
 
+bool	CCTCManager::EDROOM_CTX_Top_0::GFwdObsMngTC()
+
+{
+
+return VTCExecCtrl.IsObsMngTC();
+
+}
+
+
+
 	//********************************** Pools *************************************
 
 	//CEDROOMPOOLCDTCHandler
@@ -388,21 +398,8 @@ void CCTCManager::EDROOM_SUB_Top_0::EDROOMBehaviour()
 					//Next State is Reboot
 					edroomNextState = Reboot;
 				 } 
-				//Default Branch ExecPrioTC
-				else
-				{
-					//Execute Action 
-					FExecTC();
-
-					//Branch taken is HandleTC_ExecPrioTC
-					edroomCurrentTrans.localId =
-						HandleTC_ExecPrioTC;
-
-					//Next State is Ready
-					edroomNextState = Ready;
-				 } 
 				//Evaluate Branch FwdHK_FDIRTC
-				if( GFwdToHK_FDIR() )
+				else if( GFwdToHK_FDIR() )
 				{
 					//Send Asynchronous Message 
 					FFwdHK_FDIRTC();
@@ -427,8 +424,8 @@ void CCTCManager::EDROOM_SUB_Top_0::EDROOMBehaviour()
 					//Next State is Ready
 					edroomNextState = Ready;
 				 } 
-				//Default Branch FwdObsMngTC
-				else
+				//Evaluate Branch FwdObsMngTC
+				else if( GFwdObsMngTC() )
 				{
 					//Send Asynchronous Message 
 					FFwdObsMngTC();
@@ -436,6 +433,19 @@ void CCTCManager::EDROOM_SUB_Top_0::EDROOMBehaviour()
 					//Branch taken is HandleTC_FwdObsMngTC
 					edroomCurrentTrans.localId =
 						HandleTC_FwdObsMngTC;
+
+					//Next State is Ready
+					edroomNextState = Ready;
+				 } 
+				//Default Branch ExecPrioTC
+				else
+				{
+					//Execute Action 
+					FExecTC();
+
+					//Branch taken is HandleTC_ExecPrioTC
+					edroomCurrentTrans.localId =
+						HandleTC_ExecPrioTC;
 
 					//Next State is Ready
 					edroomNextState = Ready;
