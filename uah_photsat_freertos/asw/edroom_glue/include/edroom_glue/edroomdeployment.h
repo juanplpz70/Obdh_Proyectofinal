@@ -82,6 +82,7 @@ class CEDROOMSystemCommSAP{
 	CCHK_FDIRMng   * mp_comp3;
 	CCTCManager   * mp_comp4;
 	CCObsMng   * mp_comp5;
+
  
  
 //!Set Components

@@ -21,15 +21,22 @@ EmuGSS_TCProgram129_1::EmuGSS_TCProgram129_1(uint32_t uniTime2YK,
                         :EmuGSS_TCProgram(uniTime2YK,129,1,
                         		TC_129_1_APPDATA_LENGTH,brief){
 
-	//TODO complete EmuGSS_TCProgram129_1 constructor
+	//TODO complete EmuGSS_TCProgram129_1 constructor   done
+	 mThetaYaw=ThetaYaw;
+	 mThetaPitch=ThetaPitch;
+	 mnum_of_samples=num_samples;
+
 
     NewProgram(this);
 }
 
 void EmuGSS_TCProgram129_1::BuildTCAppData(tc_mem_descriptor_t &tc_descriptor){
 
-	//TODO complete EmuGSS_TCProgram129_1::BuildTCAppData code
-
+	//TODO complete EmuGSS_TCProgram129_1::BuildTCAppData code  done
+	SetNextUInt8(1); // N=1
+	SetNextInt16(mThetaYaw);
+	SetNextInt16(mThetaPitch);
+	SetNextUInt8(mnum_of_samples);
 
 
 }
@@ -41,14 +48,21 @@ EmuGSS_TCProgram129_2::EmuGSS_TCProgram129_2(uint32_t uniTime2YK,
                         :EmuGSS_TCProgram(uniTime2YK,129,2,
                         		TC_129_2_APPDATA_LENGTH,brief){
 
-	//TODO complete EmuGSS_TCProgram129_2 constructor
+	//TODO complete EmuGSS_TCProgram129_2 constructor  done
+	mKp=Kp;
+	mKpi=Ki;
+	mKd=Kd;
 
 	NewProgram(this);
 }
 
 void EmuGSS_TCProgram129_2::BuildTCAppData(tc_mem_descriptor_t &tc_descriptor){
 
-	//TODO complete EmuGSS_TCProgram129_2::BuildTCAppData code
+	//TODO complete EmuGSS_TCProgram129_2::BuildTCAppData code  done
+	SetNextUInt8(1); // N=1
+	SetNextFloat(mKp);
+	SetNextFloat(mKpi);
+	SetNextFloat(mKd);
 
 }
 
