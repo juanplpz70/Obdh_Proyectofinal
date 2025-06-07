@@ -271,11 +271,6 @@ public:
 		/**
 		 * \brief  
 		 */
-		void	FProgAttitudeCtrl();
-
-		/**
-		 * \brief  
-		 */
 		void	FProgTakeImage();
 
 		/**
@@ -302,6 +297,11 @@ public:
 		 * \brief 
 		 */
 		void	FInit();
+
+		/**
+		 * \brief 
+		 */
+		void	FProgAttitudeCtrl();
 
 	};
 

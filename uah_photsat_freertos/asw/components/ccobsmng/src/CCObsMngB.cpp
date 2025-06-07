@@ -98,15 +98,6 @@ varSObsMng_TC.ExecTC();
 
 
 
-void	CCObsMng::EDROOM_CTX_Top_0::FProgAttitudeCtrl()
-
-{
-
-
-}
-
-
-
 void	CCObsMng::EDROOM_CTX_Top_0::FProgTakeImage()
 
 {
@@ -177,6 +168,24 @@ time.GetTime(); // Get current monotonic time
 
 
 time+=Pr_Time(0,100000); // Add X sec + Y microsec
+   //Program absolute timer 
+   ObservTimer.InformAt( time ); 
+}
+
+
+
+void	CCObsMng::EDROOM_CTX_Top_0::FProgAttitudeCtrl()
+
+{
+   //Define absolute time
+  Pr_Time time;
+	 
+	//Timing Service useful methods
+	 
+	//time.GetTime(); // Get current monotonic time
+	//time.Add(X,Y); // Add X sec + Y microsec
+VNextTimeOut += Pr_Time(0,10000);
+time=VNextTimeOut;
    //Program absolute timer 
    ObservTimer.InformAt( time ); 
 }
