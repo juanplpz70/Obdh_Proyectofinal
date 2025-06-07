@@ -11,14 +11,13 @@
 //******************************************************************************
 // Data Classes
 
-#include <public/cdpr_time_iface_v1.h>
 #include <public/cdtchandler_iface_v1.h>
 
 
 //******************************************************************************
 // Required software interfaces
 
-#include <public/pus_service_iface_v1.h>
+#include <public/pus_services_iface_v1.h>
 
 
 /**
@@ -36,7 +35,7 @@ public:
 	 */
 	 enum TEDROOMCCObsMngSignal { EDROOMSignalTimeout, 
 							EDROOMSignalDestroy, 
-							SObsMng_TC };
+							SSObsMng_TC };
 
 	/**
 	 * \class CCObsMng::CEDROOMMemory
@@ -91,8 +90,8 @@ public:
 	//******************  Component Communication Ports *******************
 	// ********************************************************************
 
-	//! ObsCtrl Component Port
-	CEDROOMInterface	ObsCtrl;
+	//! ObsMngCtrl Component Port
+	CEDROOMInterface	ObsMngCtrl;
 
 
 	// ********************************************************************
@@ -175,7 +174,7 @@ public:
 	 */
 	enum TEDROOMCCObsMngSignal { EDROOMSignalTimeout,
 		EDROOMSignalDestroy,
-		SObsMng_TC };
+		SSObsMng_TC };
 
 
 		friend class CCObsMng;
@@ -190,40 +189,40 @@ public:
 		CEDROOMMessage * &MsgBack;
 
 		//!Component ports
-		CEDROOMInterface & ObsCtrl;
+		CEDROOMInterface & ObsMngCtrl;
 		CEDROOMTimingInterface & ObservTimer;
 		CEDROOMTimingInterface & AttCtrlTimer;
 
 
 		//! State Identifiers
 		enum TEDROOMStateID{I,
-			Standby,
+			StandBy,
 			Observation};
 
 		//!Transition Identifiers
 		enum TEDROOMTransitionID{Init,
+			DoAttitutdeCtrl,
+			DoAttitutdeCtrl_ReadyToObservation,
+			DoAttitutdeCtrl_ProgAttitudeCtrl,
 			TakeImage,
-			TakeImage_EvDoActtiudeCtrl,
+			TakeImage_EndObservation,
 			TakeImage_NoLastImage,
-			DoAttitudeCtrl,
-			DoAttitudeCtrl_EvNewObservation,
-			DoAttitudeCtrl_ProgAttitudeCtrl,
 			ExecObsMng,
 			EDROOMMemoryTrans };
 
 		//!Constants
-		const CDPr_Time CImageInterval;
+		const Pr_Time CImageInterval;
 
 
 		//!Variables
-		CDPr_Time &VNextTimeOut;
+		Pr_Time &VNextTimeOut;
 
 
 
 
 		//!Constructor
 		EDROOM_CTX_Top_0 (CCObsMng &act,
-				CDPr_Time & EDROOMpVarVNextTimeOut );
+				Pr_Time & EDROOMpVarVNextTimeOut );
 
 		//!Copy constructor
 		EDROOM_CTX_Top_0 (EDROOM_CTX_Top_0 &context);
@@ -256,7 +255,7 @@ public:
 		/**
 		 * \brief  
 		 */
-		void	FDoAttitudeCtrl();
+		void	FDoActtitudeCtrl();
 
 		/**
 		 * \brief  
@@ -267,6 +266,16 @@ public:
 		 * \brief  
 		 */
 		void	FExecObsMng_TC();
+
+		/**
+		 * \brief  
+		 */
+		void	FInit();
+
+		/**
+		 * \brief  
+		 */
+		void	FProgAttitudeCtrl();
 
 		/**
 		 * \brief  
@@ -293,16 +302,6 @@ public:
 		 */
 		bool	GReadyToObservation();
 
-		/**
-		 * \brief 
-		 */
-		void	FInit();
-
-		/**
-		 * \brief 
-		 */
-		void	FProgAttitudeCtrl();
-
 	};
 
 	// ***********************************************************************
@@ -326,7 +325,7 @@ public:
 		EDROOM_CTX_Top_0::TEDROOMStateID edroomNextState;
 
 		//!Variables
-		CDPr_Time VNextTimeOut;
+		Pr_Time VNextTimeOut;
 
 
 
@@ -349,13 +348,13 @@ public:
 
 		// ***********************************************************************
 
-		// Leaf SubState Standby
+		// Leaf SubState StandBy
 
 		// ***********************************************************************
 
 
 
-		TEDROOMTransId EDROOMStandbyArrival();
+		TEDROOMTransId EDROOMStandByArrival();
 
 		// ***********************************************************************
 

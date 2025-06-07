@@ -95,8 +95,8 @@ class CEDROOMSystemCommSAP{
  
 //Signal Conversion
  
-	static TEDROOMSignal C4TCManager_PObsCtrl__C5ObsMng_PObsCtrl(TEDROOMSignal signal);
-	static TEDROOMSignal C5ObsMng_PObsCtrl__C4TCManager_PObsCtrl(TEDROOMSignal signal);
+	static TEDROOMSignal C4TCManager_PObs_Mng_Ctrl__C5ObsMng_PObsMngCtrl(TEDROOMSignal signal);
+	static TEDROOMSignal C5ObsMng_PObsMngCtrl__C4TCManager_PObs_Mng_Ctrl(TEDROOMSignal signal);
  
 //Signal Conversion
  

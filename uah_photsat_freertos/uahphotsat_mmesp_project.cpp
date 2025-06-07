@@ -37,7 +37,7 @@ int main (void){
 	CCBKGTCExec	comp2(2, 10, EDROOMprioVeryLow, 1024, systemDeployment.GetComp2Memory());
 	CCHK_FDIRMng	comp3(3, 13, EDROOMprioNormal, 4096, systemDeployment.GetComp3Memory());
 	CCTCManager	comp4(4, 10, EDROOMprioNormal, 4096, systemDeployment.GetComp4Memory());
-	CCObsMng	comp5(5, 15, EDROOMprioVeryHigh, 1024, systemDeployment.GetComp5Memory());
+	CCObsMng	comp5(5, 15, EDROOMprioNormal, 1024, systemDeployment.GetComp5Memory());
  
 	systemDeployment.Config(&comp1, &comp2, &comp3, &comp4, &comp5);
  

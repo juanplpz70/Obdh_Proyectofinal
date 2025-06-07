@@ -70,13 +70,13 @@ void CEDROOMSystemCommSAP::SetComponents(UAHPhotSat   *p_comp1,
 //*****************************************************************************
  
  
-TEDROOMSignal CEDROOMSystemCommSAP::C4TCManager_PObsCtrl__C5ObsMng_PObsCtrl(TEDROOMSignal signalOut){
+TEDROOMSignal CEDROOMSystemCommSAP::C4TCManager_PObs_Mng_Ctrl__C5ObsMng_PObsMngCtrl(TEDROOMSignal signalOut){
  
 	TEDROOMSignal signalIn;
  
 	switch(signalOut){
  
-		case( CCTCManager::SObsMng_TC):	 signalIn=CCObsMng::SObsMng_TC; break;
+		case( CCTCManager::SSObsMng_TC):	 signalIn=CCObsMng::SSObsMng_TC; break;
  
 		default: signalIn=(TEDROOMSignal)(-1); break;
  
@@ -85,7 +85,7 @@ TEDROOMSignal CEDROOMSystemCommSAP::C4TCManager_PObsCtrl__C5ObsMng_PObsCtrl(TEDR
  
 }
  
-TEDROOMSignal CEDROOMSystemCommSAP::C5ObsMng_PObsCtrl__C4TCManager_PObsCtrl(TEDROOMSignal signalOut){
+TEDROOMSignal CEDROOMSystemCommSAP::C5ObsMng_PObsMngCtrl__C4TCManager_PObs_Mng_Ctrl(TEDROOMSignal signalOut){
  
 	TEDROOMSignal signalIn;
  
@@ -174,7 +174,7 @@ void CEDROOMSystemCommSAP::RegisterInterfaces(){
 	m_localCommSAP.RegisterInterface(2, mp_comp3->HK_FDIRTimer, mp_comp3);
  
 	// Register Interface for Component 4
-	m_localCommSAP.RegisterInterface(1, mp_comp4->ObsCtrl, mp_comp4);
+	m_localCommSAP.RegisterInterface(1, mp_comp4->Obs_Mng_Ctrl, mp_comp4);
 	m_localCommSAP.RegisterInterface(2, mp_comp4->RxTC, mp_comp4);
 	m_localCommSAP.RegisterInterface(3, mp_comp4->BKGExecCtrl, mp_comp4);
 	m_localCommSAP.RegisterInterface(4, mp_comp4->HK_FDIRCtrl, mp_comp4);
@@ -182,7 +182,7 @@ void CEDROOMSystemCommSAP::RegisterInterfaces(){
 	// Register Interface for Component 5
 	m_localCommSAP.RegisterInterface(1, mp_comp5->ObservTimer, mp_comp5);
 	m_localCommSAP.RegisterInterface(2, mp_comp5->AttCtrlTimer, mp_comp5);
-	m_localCommSAP.RegisterInterface(3, mp_comp5->ObsCtrl, mp_comp5);
+	m_localCommSAP.RegisterInterface(3, mp_comp5->ObsMngCtrl, mp_comp5);
  
 }
  
@@ -192,9 +192,9 @@ void CEDROOMSystemCommSAP::RegisterInterfaces(){
  
 void CEDROOMSystemCommSAP::SetLocalConnections(){
  
-	m_localCommSAP.Connect(mp_comp4->ObsCtrl, mp_comp5->ObsCtrl, connections[0], 
-					C4TCManager_PObsCtrl__C5ObsMng_PObsCtrl, 
-					C5ObsMng_PObsCtrl__C4TCManager_PObsCtrl);
+	m_localCommSAP.Connect(mp_comp4->Obs_Mng_Ctrl, mp_comp5->ObsMngCtrl, connections[0], 
+					C4TCManager_PObs_Mng_Ctrl__C5ObsMng_PObsMngCtrl, 
+					C5ObsMng_PObsMngCtrl__C4TCManager_PObs_Mng_Ctrl);
  
 	m_localCommSAP.Connect(mp_comp4->BKGExecCtrl, mp_comp2->BKGExecCtrl, connections[1], 
 					C4TCManager_PBKGExecCtrl__C2BKGTCExec_PBKGExecCtrl, 
