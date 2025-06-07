@@ -10,7 +10,8 @@
 
 	// CONSTRUCTORS***********************************************
 
-CCObsMng::EDROOM_CTX_Top_0::EDROOM_CTX_Top_0(CCObsMng &act ):
+CCObsMng::EDROOM_CTX_Top_0::EDROOM_CTX_Top_0(CCObsMng &act,
+	 CDPr_Time & EDROOMpVarVNextTimeOut ):
 
 	EDROOMcomponent(act),
 	Msg(EDROOMcomponent.Msg),
@@ -18,7 +19,8 @@ CCObsMng::EDROOM_CTX_Top_0::EDROOM_CTX_Top_0(CCObsMng &act ):
 	ObsCtrl(EDROOMcomponent.ObsCtrl),
 	ObservTimer(EDROOMcomponent.ObservTimer),
 	AttCtrlTimer(EDROOMcomponent.AttCtrlTimer),
-	CImageInterval(0,500000)
+	CImageInterval(0,500000),
+	VNextTimeOut(EDROOMpVarVNextTimeOut)
 {
 }
 
@@ -30,7 +32,8 @@ CCObsMng::EDROOM_CTX_Top_0::EDROOM_CTX_Top_0(EDROOM_CTX_Top_0 &context):
 	ObsCtrl(context.ObsCtrl),
 	ObservTimer(context.ObservTimer),
 	AttCtrlTimer(context.AttCtrlTimer),
-	CImageInterval(0,500000)
+	CImageInterval(0,500000),
+	VNextTimeOut(context.VNextTimeOut)
 {
 
 }
@@ -195,7 +198,8 @@ time+=Pr_Time(0,100000); // Add X sec + Y microsec
 	// CONSTRUCTOR*************************************************
 
 CCObsMng::EDROOM_SUB_Top_0::EDROOM_SUB_Top_0 (CCObsMng&act):
-		EDROOM_CTX_Top_0(act)
+		EDROOM_CTX_Top_0(act,
+			VNextTimeOut)
 {
 
 }
