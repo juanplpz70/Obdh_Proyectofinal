@@ -79,7 +79,7 @@ void	CCObsMng::EDROOM_CTX_Top_0::FEndObservation()
 {
 
 VNextTimeOut.GetTime();
-pus_service129_end_observation();
+
 
 }
 
