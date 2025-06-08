@@ -31,17 +31,17 @@
 #include <public/emu_gss_v1.h>
 
 //TODO Complete FT_UAH_PHOTSAT_SERV_129_0010  done
-//#define FT_UAH_PHOTSAT_SERV_129_0010
+#define FT_UAH_PHOTSAT_SERV_129_0010
 
-#define FT_UAH_PHOTSAT_SERV_129_FDIR_0020
+//#define FT_UAH_PHOTSAT_SERV_129_FDIR_0020
 
 
 #ifdef FT_UAH_PHOTSAT_SERV_129_0010
-EmuGSS_TCProgram129_2 prog_FT_0010_step0(OBT_AFTER_POWER_ON + 4,
-    "FT_UAH_PHOTSAT_SERV_129_FDIR_0010, Set PID Kp=Ki=Kd=0.5 to force max values",0.07, 0.02, 0.01);
+EmuGSS_TCProgram129_2 prog_FT_0010_step0(OBT_AFTER_POWER_ON + 5,
+    "FT_UAH_PHOTSAT_SERV_129_FDIR_0010, Set PID Kp,Ki,Kd to force max values",0.06, 0.03, 0.02);
 
-EmuGSS_TCProgram129_1 prog_FT_0010_step1(OBT_AFTER_POWER_ON + 5,
-	"FT_UAH_PHOTSAT_SERV_129_FDIR_0020, Values to Theta, and number of samples",900,600,6);
+EmuGSS_TCProgram129_1 prog_FT_0010_step1(OBT_AFTER_POWER_ON + 8,
+	"FT_UAH_PHOTSAT_SERV_129_FDIR_0020, Values to Theta, and number of samples",700,350,5);
 
 #endif
 
