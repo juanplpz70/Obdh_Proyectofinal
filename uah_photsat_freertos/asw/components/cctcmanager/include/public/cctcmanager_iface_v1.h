@@ -373,6 +373,11 @@ public:
 		/**
 		 * \brief  
 		 */
+		bool	GFwdObsMngTC();
+
+		/**
+		 * \brief  
+		 */
 		bool	GFwdToBKGTCExec();
 
 		/**
@@ -384,11 +389,6 @@ public:
 		 * \brief  
 		 */
 		bool	GToReboot();
-
-		/**
-		 * \brief 
-		 */
-		bool	GFwdObsMngTC();
 
 	};
 

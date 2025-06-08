@@ -70,7 +70,7 @@ void CEDROOMSystemCommSAP::SetComponents(UAHPhotSat   *p_comp1,
 //*****************************************************************************
  
  
-TEDROOMSignal CEDROOMSystemCommSAP::C4TCManager_PObs_Mng_Ctrl__C5ObsMng_PObsMngCtrl(TEDROOMSignal signalOut){
+TEDROOMSignal CEDROOMSystemCommSAP::C4TCManager_PObs_Mng_Ctrl__C5ObsMng_PObs_Mng_Ctrl(TEDROOMSignal signalOut){
  
 	TEDROOMSignal signalIn;
  
@@ -85,7 +85,7 @@ TEDROOMSignal CEDROOMSystemCommSAP::C4TCManager_PObs_Mng_Ctrl__C5ObsMng_PObsMngC
  
 }
  
-TEDROOMSignal CEDROOMSystemCommSAP::C5ObsMng_PObsMngCtrl__C4TCManager_PObs_Mng_Ctrl(TEDROOMSignal signalOut){
+TEDROOMSignal CEDROOMSystemCommSAP::C5ObsMng_PObs_Mng_Ctrl__C4TCManager_PObs_Mng_Ctrl(TEDROOMSignal signalOut){
  
 	TEDROOMSignal signalIn;
  
@@ -182,7 +182,7 @@ void CEDROOMSystemCommSAP::RegisterInterfaces(){
 	// Register Interface for Component 5
 	m_localCommSAP.RegisterInterface(1, mp_comp5->ObservTimer, mp_comp5);
 	m_localCommSAP.RegisterInterface(2, mp_comp5->AttCtrlTimer, mp_comp5);
-	m_localCommSAP.RegisterInterface(3, mp_comp5->ObsMngCtrl, mp_comp5);
+	m_localCommSAP.RegisterInterface(3, mp_comp5->Obs_Mng_Ctrl, mp_comp5);
  
 }
  
@@ -192,9 +192,9 @@ void CEDROOMSystemCommSAP::RegisterInterfaces(){
  
 void CEDROOMSystemCommSAP::SetLocalConnections(){
  
-	m_localCommSAP.Connect(mp_comp4->Obs_Mng_Ctrl, mp_comp5->ObsMngCtrl, connections[0], 
-					C4TCManager_PObs_Mng_Ctrl__C5ObsMng_PObsMngCtrl, 
-					C5ObsMng_PObsMngCtrl__C4TCManager_PObs_Mng_Ctrl);
+	m_localCommSAP.Connect(mp_comp4->Obs_Mng_Ctrl, mp_comp5->Obs_Mng_Ctrl, connections[0], 
+					C4TCManager_PObs_Mng_Ctrl__C5ObsMng_PObs_Mng_Ctrl, 
+					C5ObsMng_PObs_Mng_Ctrl__C4TCManager_PObs_Mng_Ctrl);
  
 	m_localCommSAP.Connect(mp_comp4->BKGExecCtrl, mp_comp2->BKGExecCtrl, connections[1], 
 					C4TCManager_PBKGExecCtrl__C2BKGTCExec_PBKGExecCtrl, 

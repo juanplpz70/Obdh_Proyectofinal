@@ -90,8 +90,8 @@ public:
 	//******************  Component Communication Ports *******************
 	// ********************************************************************
 
-	//! ObsMngCtrl Component Port
-	CEDROOMInterface	ObsMngCtrl;
+	//! Obs_Mng_Ctrl Component Port
+	CEDROOMInterface	Obs_Mng_Ctrl;
 
 
 	// ********************************************************************
@@ -189,7 +189,7 @@ public:
 		CEDROOMMessage * &MsgBack;
 
 		//!Component ports
-		CEDROOMInterface & ObsMngCtrl;
+		CEDROOMInterface & Obs_Mng_Ctrl;
 		CEDROOMTimingInterface & ObservTimer;
 		CEDROOMTimingInterface & AttCtrlTimer;
 

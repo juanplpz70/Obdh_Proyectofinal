@@ -233,6 +233,16 @@ return VAcceptReport.IsAccepted();
 
 
 
+bool	CCTCManager::EDROOM_CTX_Top_0::GFwdObsMngTC()
+
+{
+
+return VTCExecCtrl.IsObsMngTC();
+
+}
+
+
+
 bool	CCTCManager::EDROOM_CTX_Top_0::GFwdToBKGTCExec()
 
 {
@@ -258,16 +268,6 @@ bool	CCTCManager::EDROOM_CTX_Top_0::GToReboot()
 {
 
 return VTCExecCtrl.IsRebootTC();
-
-}
-
-
-
-bool	CCTCManager::EDROOM_CTX_Top_0::GFwdObsMngTC()
-
-{
-
-return VTCExecCtrl.IsObsMngTC();
 
 }
 
