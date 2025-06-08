@@ -106,7 +106,7 @@ main-build: uah_photsat_freertos
 uah_photsat_freertos: $(OBJS) $(USER_OBJS) makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	g++  -o "uah_photsat_freertos" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ -ftest-coverage -fprofile-arcs -o "uah_photsat_freertos" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
